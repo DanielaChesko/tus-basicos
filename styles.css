@@ -93,14 +93,32 @@ main{
 
 .inputs-monto{
     display: flex;
-    flex-direction: column;
     margin-right: 15rem;
     align-items: center;
 }
 
-.inputs-porcentaje{
+.inputs-monto div{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.inputs-monto .div-error,
+.inputs-porcentaje .div-error {
+    display: none; 
+    height: 90%;
+    width: 6rem;
+    justify-content: flex-end;
+    font-size: small;
+}
+
+.mensaje-error{
+    background-color: lightpink;
+    padding: 0.2rem;
+}
+
+.inputs-porcentaje{
+    display: flex;
     align-items: center;
 }
 
@@ -112,6 +130,12 @@ main{
     appearance: none;
     justify-content: center;
     margin-top: 1rem;
+}
+
+.inputs-porcentaje div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .porcentaje-boton{
