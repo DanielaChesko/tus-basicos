@@ -114,12 +114,32 @@ main{
     margin-top: 1rem;
 }
 
+.porcentaje-boton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.porcentaje-boton p{
+    margin-bottom: 1rem;
+}
+
+.porcentaje-boton span{
+    color: var(--color-letras);
+    font-weight: 700;
+}
+
 .porcentaje-boton button{
     font-size: medium;
     font-weight: 600;
     padding: 0.6rem;
     background-color: var(--color-fondo);
     border-radius: 7px;
+    width: 10rem;
+}
+
+.porcentaje-boton button:hover{
+    background-color: var(--color-fondo-secundario);
 }
 
 

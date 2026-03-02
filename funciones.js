@@ -5,6 +5,13 @@ const navTareas = document.getElementById('nav-tareas');
 const seccionPorcentaje = document.getElementById('main-porcentaje');
 const seccionTareas = document.getElementById('main-tareas');
 
+const inputMonto = document.getElementById('input-monto');
+const inputPorcentaje = document.getElementById('input-porcentaje');
+const botonCalcular = document.getElementById('boton-calcular');
+const parrafoResultado = document.getElementById('monto-resultado');
+
+// ------------------------- HEADER ---------------------------
+
 //EVENTO para cuando carga la pagina (por defecto)
 document.addEventListener('DOMContentLoaded', () =>{
     //muestra la seccion
@@ -42,4 +49,26 @@ navTareas.addEventListener('click', function(){
     //pintar nav
     navTareas.style.backgroundColor = 'var(--color-fondo-secundario)'
     navPorcentaje.style.backgroundColor = 'transparent';
+})
+
+
+// ----------------------- PORCENTAJE ----------------------------
+
+botonCalcular.addEventListener('click', function(){
+    //traer valores de monto y porcentaje
+    const monto = parseFloat(inputMonto.value);
+    const porcentaje = parseFloat(inputPorcentaje.value);
+
+    //validación
+    if(isNaN(monto) || isNaN(porcentaje)){
+        alert("Por favor ingresa números válidos");
+        parrafoResultado.textContent = `$`
+        return;
+    }
+
+    //hacer cálculo
+    const resultado = (monto * porcentaje) / 100;
+
+    //mostrar en monto-resultado
+    parrafoResultado.textContent = `$${resultado}`;
 })
