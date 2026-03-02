@@ -1,0 +1,168 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --color-letras: midnightblue;
+    --color-fondo: khaki;
+    --color-fondo-secundario: rgb(214, 203, 104);
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* ------------- HEADER ----------------*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-fondo);
+    color: var(--color-letras);
+}
+
+.menu-izquierda ul{
+    display: flex;
+}
+
+#nav-porcentaje{
+    background-color: var(--color-fondo-secundario);
+}
+
+#nav-porcentaje:active{
+    background-color: var(--color-fondo-secundario);
+}
+
+#nav-tareas:active{
+    background-color: var(--color-fondo-secundario);
+}
+
+.menu-izquierda ul li{
+    list-style-type: none;
+    padding: 1rem 3rem;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.menu-derecha ul{
+    display: flex;
+}
+
+h1{
+    padding: 1rem 0;
+    font-size: x-large;
+    font-style: italic;
+}
+
+.menu-derecha ul li{
+    margin-right: 1rem;
+    list-style-type: none;
+    padding: 1rem 0;
+    font-size: large;
+    font-weight: 600;
+}
+
+/* ------------- MAIN ----------------*/
+
+main{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+
+/* ------------- PORCENTAJE ----------------*/
+
+#main-porcentaje{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: x-large;
+}
+
+.porcentaje-inputs{
+    display: flex;
+    margin-bottom: 10rem;
+}
+
+.inputs-monto{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15rem;
+    align-items: center;
+}
+
+.inputs-porcentaje{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-porcentaje input{
+    font-size: x-large;
+    width: 10rem;
+    border: none;
+    border-bottom: 1px solid var(--color-letras);
+    appearance: none;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.porcentaje-boton button{
+    font-size: medium;
+    font-weight: 600;
+    padding: 0.6rem;
+    background-color: var(--color-fondo);
+    border-radius: 7px;
+}
+
+
+/* ------------- TAREAS ----------------*/
+#main-tareas{
+    display: flex;
+    width: 95vw;
+    height: 85vh;
+    margin: 1rem;
+}
+
+#main-tareas input{
+    font-size: larger;
+    width: 50rem;
+    border: none;
+    border-bottom: 1px solid var(--color-letras);
+    appearance: none;
+}
+
+#boton-agregar-tarea{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border-width: 1px;
+    background-color: lightgreen;
+    border-color: var(--color-letras);
+}
+
+
+/* Elimina las flechitas (spinners) en Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Elimina el borde azul (outline) cuando haces click adentro */
+#main-porcentaje input:focus {
+    outline: none;
+}
+
+
+/* Elimina el borde azul (outline) cuando haces click adentro */
+#main-tareas input:focus {
+    outline: none;
+}

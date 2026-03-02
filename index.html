@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="menu-izquierda">
+                <ul>
+                    <li id="nav-porcentaje">Porcentaje</li>
+                    <li id="nav-tareas">Tareas</li>
+                </ul>
+            </div>
+
+            <h1>Tus basicos</h1>
+
+            <div class="menu-derecha">
+                <ul>
+                    <li>Iniciar</li>
+                    <li>Registrarme</li>
+                    <li>
+                        <input type="checkbox" id="toggle-modo">
+                        <label for="toggle-modo"></label>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="main-porcentaje">
+            <div class="porcentaje-inputs">
+                <div class="inputs-monto">
+                    <h2>Monto</h2>
+                    <p>$  <input type="number" id="input-monto"></p>
+                </div>
+                <div class="inputs-porcentaje">
+                    <h2>Porcentaje (0-100)</h2>
+                    <p><input type="number" id="input-porcentaje"> %</p>
+                </div>
+            </div>
+            <div class="porcentaje-boton">
+                <p id="monto-resultado"></p>
+                <button id="boton-calcular">CALCULAR</button>
+            </div>
+        </section>
+
+        <section id="main-tareas" class="oculto">
+            <div class="tareas-agregar">
+                <input type="text" id="input-tarea" placeholder="Nueva tarea...">
+                <button id="boton-agregar-tarea">+</button>
+            </div>
+
+            <div class="tareas-lista">
+                <ul class="lista-tareas">
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="funciones.js"></script>
+</body>
+</html>
