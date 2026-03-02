@@ -41,7 +41,7 @@ navPorcentaje.addEventListener('click', function(){
 //EVENTO en tareas
 navTareas.addEventListener('click', function(){
     //muestra la seccion
-    seccionTareas.style.display = 'block';
+    seccionTareas.style.display = 'flex';
 
     //ocultar seccion porcentaje
     seccionPorcentaje.style.display = 'none';
