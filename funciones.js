@@ -79,6 +79,7 @@ botonCalcular.addEventListener('click', function(){
     }
 
     if(huboError === true){
+        parrafoResultado.textContent = `$`;
         return;
     }
 
