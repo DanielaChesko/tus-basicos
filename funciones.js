@@ -13,6 +13,10 @@ const parrafoResultado = document.getElementById('monto-resultado');
 const errorMonto = document.getElementById('error-monto');
 const errorPorcentaje = document.getElementById('error-porcentaje');
 
+const tareaAñadir = document.getElementById('input-tarea');
+const botonAñadir = document.getElementById('boton-agregar-tarea');
+const contenedorTareas = document.getElementById('contenedor-tareas');
+
 // ------------------------- HEADER ---------------------------
 
 //EVENTO para cuando carga la pagina (por defecto)
@@ -89,3 +93,38 @@ botonCalcular.addEventListener('click', function(){
     //mostrar en monto-resultado
     parrafoResultado.textContent = `$${resultado}`;
 });
+
+
+// ----------------------- TAREAS ----------------------------
+botonAñadir.addEventListener('click', function(){
+    //traer lo que el usuario escribio
+    const texto = tareaAñadir.value;
+
+    if(texto ===  ""){
+        return;
+    }
+
+    //armar tarea con checkbox
+    const nuevaTarea = `
+        <li>
+            <label>
+                <input type="checkbox" class="check-tarea">
+                <span class="checkmark"></span>
+                <span class="texto-tarea">${texto}</span>
+            </label>
+        </li>    
+    `
+
+    //agregamos a la lista la tarea
+    contenedorTareas.insertAdjacentHTML('beforeend', nuevaTarea);
+
+    //limpiamos input
+    tareaAñadir.value = "";
+})
+
+tareaAñadir.addEventListener('keydown', function(evento){
+    //para que al añadir una tarea tambien se pueda usar el ENTER (UX)
+    if(evento.key === 'Enter'){
+        botonAñadir.click();
+    }
+})
