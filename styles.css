@@ -7,17 +7,28 @@
     --color-letras: midnightblue;
     --color-fondo: khaki;
     --color-fondo-secundario: rgb(214, 203, 104);
+    --color-fondo-main: rgb(255, 255, 255);
 }
 
 body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo-main);
+    color: var(--color-letras);
 }
 
+body.modo-oscuro{
+    --color-letras: #c4c7c5;
+    --color-fondo: #131314;
+    --color-fondo-secundario: #6c9c7d;
+    --color-fondo-main: #1e1f20;
+}
 
-/* ------------- HEADER ----------------*/
+/* =========================================
+                    HEADER
+   ========================================= */
 nav{
     display: flex;
     justify-content: space-between;
@@ -48,6 +59,11 @@ nav{
     font-weight: 600;
 }
 
+.menu-derecha{
+    display: flex;
+    align-items: center;
+}
+
 .menu-derecha ul{
     display: flex;
 }
@@ -59,14 +75,68 @@ h1{
 }
 
 .menu-derecha ul li{
-    margin-right: 1rem;
+    display: flex;
+    margin-right: 2rem;
+    margin-top: 0.1rem;
     list-style-type: none;
-    padding: 1rem 0;
-    font-size: large;
+    font-size: medium;
     font-weight: 600;
+
+    display: flex;
+    align-items: center;
 }
 
-/* ------------- MAIN ----------------*/
+.menu-derecha ul li:hover{
+    text-decoration: underline;
+    cursor: context-menu;
+}
+
+/* ocultar el checkbox del modo (toggle) */
+#toggle-modo{
+    display: none;
+}
+
+#toggle-modo + label{ /* caja */
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+#toggle-modo + label::after { /* circulo */
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    
+    top: 3px;
+    left: 6px;
+    
+    transition: transform 0.3s, background-color 0.3s;
+    
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#toggle-modo:checked + label {
+    background-color: var(--color-letras);
+}
+
+#toggle-modo:checked + label::after { /* movimiento de perilla */
+    transform: translateX(30px); 
+    
+    background-color: var(--color-fondo); 
+}
+
+/* =========================================
+                    MAIN
+   ========================================= */
 
 main{
     display: flex;
@@ -76,8 +146,9 @@ main{
     align-self: center;
 }
 
-
-/* ------------- PORCENTAJE ----------------*/
+/* =========================================
+                    PORCENTAJE
+   ========================================= */
 
 #main-porcentaje{
     display: flex;
@@ -130,6 +201,8 @@ main{
     appearance: none;
     justify-content: center;
     margin-top: 1rem;
+    background-color: var(--color-fondo-main);
+    color: var(--color-letras);
 }
 
 .inputs-porcentaje div{
@@ -157,17 +230,19 @@ main{
     font-size: medium;
     font-weight: 600;
     padding: 0.6rem;
-    background-color: var(--color-fondo);
+    background-color: var(--color-fondo-secundario);
     border-radius: 7px;
     width: 10rem;
 }
 
 .porcentaje-boton button:hover{
-    background-color: var(--color-fondo-secundario);
+    background-color: #88b999;
 }
 
 
-/* ------------- TAREAS ----------------*/
+/* =========================================
+                    TAREAS
+   ========================================= */
 #main-tareas{
     display: flex;
     flex-direction: column;
@@ -182,6 +257,8 @@ main{
     border: none;
     border-bottom: 1px solid var(--color-letras);
     appearance: none;
+    background-color: var(--color-fondo-main);
+    color: var(--color-letras);
 }
 
 #boton-agregar-tarea{
@@ -233,7 +310,9 @@ main{
     color: gray;
 }
 
-
+/* =========================================
+            RESETEO DE INPUTS
+   ========================================= */
 /* Elimina las flechitas (spinners) en Chrome, Safari, Edge, Opera */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -245,7 +324,6 @@ input[type=number]::-webkit-outer-spin-button {
 #main-porcentaje input:focus {
     outline: none;
 }
-
 
 /* Elimina el borde azul (outline) cuando haces click adentro */
 #main-tareas input:focus {

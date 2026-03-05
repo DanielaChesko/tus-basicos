@@ -17,6 +17,8 @@ const tareaAñadir = document.getElementById('input-tarea');
 const botonAñadir = document.getElementById('boton-agregar-tarea');
 const contenedorTareas = document.getElementById('contenedor-tareas');
 
+const toggleModo = document.getElementById('toggle-modo');
+
 // ------------------------- HEADER ---------------------------
 
 //EVENTO para cuando carga la pagina (por defecto)
@@ -30,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () =>{
     //pintar nav
     navPorcentaje.style.backgroundColor = 'var(--color-fondo-secundario)';
     navTareas.style.backgroundColor = 'transparent'
+
+    //leer localStorage
+    const memoria = localStorage.getItem('modo-guardado');
+    if(memoria === 'oscuro'){
+        document.body.classList.add('modo-oscuro');
+        toggleModo.checked = true;
+    }
 })
 
 //EVENTO en porcentaje
@@ -142,3 +151,16 @@ contenedorTareas.addEventListener('click', function(evento){
         tareaEntera.remove();
     }
 })
+
+// ----------------------- TOGGLE MODO OSCURO / CLARO ----------------------------
+toggleModo.addEventListener('change', function(){
+    document.body.classList.toggle('modo-oscuro');
+
+    //guardar el modo en localStorage
+    if(document.body.classList.contains('modo-oscuro')){
+        localStorage.setItem('modo-guardado', 'oscuro');
+    }else{
+        localStorage.setItem('modo-guardado', 'claro');
+    }
+})
+    
